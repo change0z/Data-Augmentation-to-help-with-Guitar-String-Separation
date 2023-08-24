@@ -32,4 +32,4 @@ The dissertation implements time stretching by first separating the audio into h
 Separating the components avoids undesirable artifacts and maintains transient quality. Stretching between 0.9-1.1x introduces realistic variations in tempo.
 
 
-(https://github.com/change0z/Data-Augmentation-to-help-with-Guitar-String-Separation/blob/main/Images/Time_Stretching.png)
+![Time Stretching](https://github.com/change0z/Data-Augmentation-to-help-with-Guitar-String-Separation/blob/main/Images/Time_Stretching.png)
