@@ -33,3 +33,6 @@ Separating the components avoids undesirable artifacts and maintains transient q
 
 
 ![Time Stretching](Images/Time_Stretching.png)
+
+Audio without Augmentation - [Base_Audio](Test Audio File/00_BN1-129-Eb_comp.wav)
+Audio with Time Stretching - [Time Stretching](Test Audio File/BN1_TS.wav)
