@@ -35,5 +35,48 @@ Separating the components avoids undesirable artifacts and maintains transient q
 ![Time Stretching](Images/Time_Stretching.png)
 
 
-- Audio without Augmentation - ![Base_Audio](https://github.com/change0z/Data-Augmentation-to-help-with-Guitar-String-Separation/blob/main/Test%20Audio%20File/00_BN1-129-Eb_comp.wav)
-- Audio with Time Stretching - ![Time Stretching](https://github.com/change0z/Data-Augmentation-to-help-with-Guitar-String-Separation/blob/main/Test%20Audio%20File/BN1_TS.wav)
+- Audio without Augmentation - [Base Audio](https://github.com/change0z/Data-Augmentation-to-help-with-Guitar-String-Separation/blob/main/Test%20Audio%20File/00_BN1-129-Eb_comp.wav)
+
+
+- Audio with Time Stretching - [Time Stretching](https://github.com/change0z/Data-Augmentation-to-help-with-Guitar-String-Separation/blob/main/Test%20Audio%20File/BN1_TS.wav)
+
+
+### Pitch Shifting
+
+For pitch shifting, the entire signal is first shifted between -2 and 2 semitones using librosa's pitch_shift. Then, the harmonic part is isolated with HPSS and pitch-shifted separately by the same randomly selected interval. This second shift on just the harmonic introduces inharmonicity. The original shifted signal is added back to the inharmonic harmonic component to get the final pitch-shifted audio.
+
+Shifting both the entire signal and its harmonic part exposes the model to realistic pitch changes and inharmonicity in guitar tones during training. The -2 to 2 semitone range covers interval fluctuations when playing.
+
+![Pitch Shifting](https://github.com/change0z/Data-Augmentation-to-help-with-Guitar-String-Separation/blob/main/Images/Pitch%20Shifting.png)
+
+- Audio with Pitch Shifting - [Pitch Shifting](https://github.com/change0z/Data-Augmentation-to-help-with-Guitar-String-Separation/blob/main/Test%20Audio%20File/BN1_PS.wav)
+
+### Noise Injection 
+
+Random white Gaussian noise is generated using NumPy's random.normal distribution. The power of the noise and original signal are calculated. The noise is then scaled by a ratio of the signal power to noise power before adding it to the signal. A noise_factor hyperparameter controls the amount of noise added.
+
+This injects random noise proportional to the signal power, simulating real-world ambient and electronic noise. The model learns to separate strings even with noisy input.
+
+![Noise Injection](https://github.com/change0z/Data-Augmentation-to-help-with-Guitar-String-Separation/blob/main/Images/Noise_Injection.png)
+
+- Audio with Noise Injection - [Noise Injection](https://github.com/change0z/Data-Augmentation-to-help-with-Guitar-String-Separation/blob/main/Test%20Audio%20File/BN1_NI.wav)
+
+### Results
+
+The experiments compare the performance of the U-Net model on the guitar string separation task with different data augmentation techniques. The model is evaluated on the test set using signal-to-distortion ratio (SDR) as the primary metric.
+
+The results demonstrate that certain augmentations like pitch shifting and time stretching, when combined with the original training data, can significantly improve the model's accuracy. These techniques introduce realistic variations in pitch and timing that enhance the diversity of the dataset. The model is able to learn more robust representations that translate to better separation quality on the unseen test data.
+
+However, excessive augmentation through random noise injection is shown to degrade performance. While real guitar recordings contain inherent noise, injecting too much artificial noise obscures the underlying patterns for the model to learn effectively. Additionally, finding the right balance between augmentations and original training samples is important.
+
+Overall, the experiments highlight the potential of data augmentation, when applied appropriately, to improve separation accuracy by exposing the model to useful transformations of the training data. However, augmentation should complement and not replace original diverse recordings.
+
+### Conclusion
+
+The experiments compare the performance of the U-Net model on the guitar string separation task with different data augmentation techniques. The model is evaluated on the test set using signal-to-distortion ratio (SDR) as the primary metric.
+
+The results demonstrate that certain augmentations like pitch shifting and time stretching, when combined with the original training data, can significantly improve the model's accuracy. These techniques introduce realistic variations in pitch and timing that enhance the diversity of the dataset. The model is able to learn more robust representations that translate to better separation quality on the unseen test data.
+
+However, excessive augmentation through random noise injection is shown to degrade performance. While real guitar recordings contain inherent noise, injecting too much artificial noise obscures the underlying patterns for the model to learn effectively. Additionally, finding the right balance between augmentations and original training samples is important.
+
+Overall, the experiments highlight the potential of data augmentation, when applied appropriately, to improve separation accuracy by exposing the model to useful transformations of the training data. However, augmentation should complement and not replace original diverse recordings.
