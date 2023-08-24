@@ -21,4 +21,15 @@ The repository contains the following key components
 ### Requirements
 - Python 3.6+
 - Pytorch 1.0+
-- Other common packages lusted in [requirements.txt]()
+- Other common packages lusted in [requirements.txt](https://github.com/change0z/Data-Augmentation-to-help-with-Guitar-String-Separation/blob/main/requirements.txt)
+
+## Details About the Augmentation Techniques.
+
+### Time Stretching
+
+The dissertation implements time stretching by first separating the audio into harmonic and percussive components using harmonic-percussive source separation (HPSS). The harmonic and percussive parts are then time stretched independently using librosa's time_stretch function. This applies a phase vocoder technique to stretch the signals between 0.9 and 1.1 times their original length, selected randomly per sample. The time-modified harmonic and percussive components are recombined to produce the final time-stretched audio.
+
+Separating the components avoids undesirable artifacts and maintains transient quality. Stretching between 0.9-1.1x introduces realistic variations in tempo.
+
+
+(https://github.com/change0z/Data-Augmentation-to-help-with-Guitar-String-Separation/blob/main/Images/Time_Stretching.png)
