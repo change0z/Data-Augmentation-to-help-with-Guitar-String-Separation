@@ -18,6 +18,22 @@ The repository contains the following key components
 - Exploratory Analysis for each channel of the Ground Truth Library to understand the musical componets - [Exploratory Analysis](https://github.com/change0z/Data-Augmentation-to-help-with-Guitar-String-Separation/blob/main/Exploratory_Analysis.ipynb)
 - Notebook to perform Data Augmentation Techinques and create Augmented Datasets - [Data Augmentation](https://github.com/change0z/Data-Augmentation-to-help-with-Guitar-String-Separation/blob/main/Data_Augmentation_Dataset_Creation.ipynb)
 
+### Dataset
+
+[GuitarSet](https://guitarset.weebly.com/) is a dataset that provides high-quality guitar recordings, along with rich annotations and metadata. The dataset contains recordings of various musical excerpts played on an acoustic guitar, with time-aligned annotations including pitch contours, string and fret positions, chords, beats, downbeats, and playing style.
+
+#### Audio Content
+
+GuitarSet contains 360 excerpts, each approximately 30 seconds in length. These excerpts are the result of 6 players each playing the same 30 lead sheets in 2 versions: comping and soloing. The 30 lead sheets are generated from a combination of 5 styles (Rock, Singer-Songwriter, Bossa Nova, Jazz, and Funk), 3 progressions (12 Bar Blues, Autumn Leaves, and Pachelbel Canon), and 2 tempi (slow and fast).
+
+#### Audio Collection Setup
+
+Audio was recorded using a hexaphonic pickup, which outputs signals for each string separately, allowing for automated note-level annotation. Players were provided with lead sheets and backing tracks reflecting the correct style, including a drum kit and a bass line. Excerpts were recorded using both the hexaphonic pickup and a Neumann U-87 condenser microphone as reference.
+
+Three audio recordings are provided with each excerpt: the original 6-channel wave file from the hexaphonic pickup (hex), the hex wave files with interference removal applied (hex_cln), and the monophonic recording from the reference microphone (mic).
+
+This dataset is an excellent resource for researchers and developers working on guitar string separation and related audio separation tasks. By providing high-quality recordings alongside rich annotations and metadata, GuitarSet enables the development of more robust and generalizable models.
+
 ### Requirements
 - Python 3.6+
 - Pytorch 1.0+
