@@ -35,5 +35,5 @@ Separating the components avoids undesirable artifacts and maintains transient q
 ![Time Stretching](Images/Time_Stretching.png)
 
 
-- Audio without Augmentation - ![Base_Audio](Test Audio File/00_BN1-129-Eb_comp.wav)
-- Audio with Time Stretching - ![Time Stretching](Test Audio File/BN1_TS.wav)
+- Audio without Augmentation - ![Base_Audio](https://github.com/change0z/Data-Augmentation-to-help-with-Guitar-String-Separation/blob/main/Test%20Audio%20File/00_BN1-129-Eb_comp.wav)
+- Audio with Time Stretching - ![Time Stretching](https://github.com/change0z/Data-Augmentation-to-help-with-Guitar-String-Separation/blob/main/Test%20Audio%20File/BN1_TS.wav)
